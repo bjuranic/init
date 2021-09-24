@@ -1,0 +1,213 @@
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins/_breakpoints';
+@import '../abstracts/variables';
+
+.header {
+    .navbar {
+        $this: &;
+
+        height: 55px;
+        box-shadow: 0 4px 24px #1b18180a;
+
+        @include media-breakpoint-up(lg) {
+            height: 80px;
+            padding: 0 0 0 15px;
+
+            justify-content: space-between;
+        }
+        @include media-breakpoint-down(md) {
+            padding: 15px;
+        }
+
+        .body--overflow & {
+            width: 100%;
+            height: 55px;
+
+            position: fixed;
+            z-index: 4;
+
+            background-color: $white;
+        }
+
+        @at-root .body--overflow {
+            overflow: hidden;
+        }
+
+        &-collapse {
+            $this: &;
+            
+            flex-grow: inherit;
+
+            @include media-breakpoint-down(md) {
+                display: flex;
+                width: 100%;
+                height: calc(100vh - 40px);
+                overflow: auto;
+                transform: translateX(-100%);
+                transition: transform .3s ease-in-out;
+
+                position: fixed;
+                top: 55px;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                z-index: 2;
+            }
+            &.show {
+                $this: &;
+
+                @include media-breakpoint-down(md) {
+                    transform: translateX(0);
+                }
+            }
+        }
+
+        &-nav {
+            @include media-breakpoint-down(md) {
+                display: flex;
+                height: calc(100vh - 40px);
+                align-items: center;
+                justify-content: center;
+                flex: 1;
+                
+                background-color: $white;
+            }
+        }
+
+        &-brand {
+            padding: 0;
+
+            font-size: inherit;
+
+            svg {
+                transition: .5s ease-in-out;
+
+                @include media-breakpoint-down(md) {
+                    width: 60px;
+                }
+            }
+        }
+        &-toggler {
+            width: 30px;
+            height: 24px;
+            transform: rotate(0deg);
+            transition: .5s ease-in-out;
+            border: 0;
+
+            position: relative;
+            
+            cursor: pointer;
+
+            span {
+                display: block;
+                width: 50%;
+                height: 4px;
+                transform: rotate(0deg);
+                transition: .25s ease-in-out;
+
+                position: absolute;
+                
+                background-color: #1a1818;
+                opacity: 1;
+            }
+
+            &.collapsed span:nth-child(even) {
+                left: 50%;
+
+                opacity: 1;
+            }
+
+            &.collapsed span:nth-child(odd) {
+                left: 0;
+
+                opacity: 1;
+            }
+
+            &.collapsed span:nth-child(1), 
+            &.collapsed span:nth-child(2) {
+                top: 0px;
+                transform: rotate(0deg);
+            }
+
+            &.collapsed span:nth-child(3), 
+            &.collapsed span:nth-child(4) {
+                top: 10px;
+            }
+
+            &.collapsed span:nth-child(5), 
+            &.collapsed span:nth-child(6) {
+                top: 20px;
+                transform: rotate(0deg);
+            }
+
+
+            span:nth-child(1), 
+            span:nth-child(6) {
+                transform: rotate(45deg);
+            }
+
+            span:nth-child(2), 
+            span:nth-child(5) {
+                transform: rotate(-45deg);
+            }
+
+            span:nth-child(1) {
+                left: 2px;
+                top: 4px;
+            }
+
+            span:nth-child(2) {
+                left: calc(50% - 2px);
+                top: 4px;
+            }
+
+            span:nth-child(3) {
+                left: -50%;
+                opacity: 0;
+            }
+
+            span:nth-child(4) {
+                left: 100%;
+                opacity: 0;
+            }
+
+            span:nth-child(5) {
+                left: 2px;
+                top: 14px;
+            }
+
+            span:nth-child(6) {
+                left: calc(50% - 2px);
+                top: 14px;
+            }
+        }
+        .nav {
+            $this: &;
+
+            &-link {
+                padding: 16px 24px;
+                transition: .5s ease-in-out;
+
+                color: $color-secondary;
+
+                font-weight: 500;
+
+                @include media-breakpoint-down(md) {
+                    font-size: 46px;
+                    font-weight: 800;
+                }
+                @include media-breakpoint-down(sm) {
+                    font-size: 36px;
+                }
+                @include media-breakpoint-down(xs) {
+                    font-size: 26px;
+                }
+                
+                &:hover {
+                    color: $color-primary;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,39 @@
+// Typography
+@font-face {
+    font-family: 'Rationell';
+
+    src: url("../../assets/fonts/Rationell-Regular.otf") format("opentype"),
+}
+
+@font-face {
+    font-family: 'Rationell Bold';
+
+    src: url("../../assets/fonts/Rationell-Bold.otf") format("opentype"),
+}
+
+@font-face {
+    font-family: 'Rationell Medium';
+
+    src: url("../../assets/fonts//Rationell-Medium.otf") format("opentype"),
+}
+
+@font-face {
+    font-family: 'Anguita Sans';
+
+    src: url("../../assets/fonts/AnguitaSans.otf") format("opentype"),
+}
+
+$base-font: 'Rationell';
+$fallback-font: 'Arial';
+
+$font-family: $base-font, $fallback-font;
+$font-family-2: 'Rationell Bold';
+$font-family-3: 'Rationell Medium';
+$font-family-4: 'Anguita Sans';
+
+
+// Colors
+$color-primary:     #ca0131;
+$color-secondary:   #1b1818;
+
+

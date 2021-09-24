@@ -1,0 +1,101 @@
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins/_breakpoints';
+@import '../abstracts/variables';
+
+.services {
+    $this: &;
+    
+    &-section {
+        overflow: hidden;
+        
+        @include media-breakpoint-down(xs) {
+            padding-bottom: 50px;
+        }
+
+        &__content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            padding: 24px 0 60px 32px;
+
+            position: relative;
+
+            text-align: left;
+
+            @include media-breakpoint-up(md) {
+                padding: 60px 114px 130px;
+            }
+
+            &:after {
+                width: 200px;
+                padding-right: 40px;
+
+                position: absolute;
+                top: -20px;
+                left: -10px;
+                z-index: 1;
+
+                color: #e6e6e6;
+
+                font-size: 96px;
+                line-height: 120px;
+                font-family: $font-family-4;
+                content: '01';
+
+                -webkit-text-fill-color: transparent;
+                -webkit-text-stroke-width: 2px;
+                -webkit-text-stroke-color: inherit;
+                
+
+                @include media-breakpoint-up(lg) {
+                    font-size: 240px;
+                    line-height: 1;
+                }
+
+                @include media-breakpoint-up(md) {
+                    font-size: 160px;
+                    line-height: 1;
+                }
+            }
+        }
+
+        &__title {
+            font-weight: 700;
+
+            z-index: 2;
+        }
+
+        &__text {
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        &__list {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            padding: 0;
+            margin-top: 48px;
+        }
+
+        &__item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 32px;
+            flex-basis: 100%;
+            list-style-type: none;
+
+            @include media-breakpoint-up(md) {
+                flex-basis: 50%;
+            }
+
+            &-label {
+                margin: 0 0 0 16px;
+
+                font-family: $font-family-2;
+                font-weight: 900;
+            }
+        }
+    }
+}

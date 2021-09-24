@@ -1,0 +1,12 @@
+@import '../abstracts/variables';
+
+body {
+    color: $color-secondary;
+
+    font-size: 18px;
+    font-family: $font-family;
+}
+
+h1, h2 {
+    font-family: $font-family-3;
+}

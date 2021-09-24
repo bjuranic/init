@@ -1,0 +1,10 @@
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins/_breakpoints';
+
+.container {
+    &--fluid {
+        @include media-breakpoint-between(xs,lg) {
+            min-width: 100%;
+        }
+    }
+}
